@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Users, Workflow, ShieldCheck, ArrowRight, Activity, Target, Zap, Brain, RefreshCw, Megaphone, Award, BookOpen, Swords, CalendarCheck, ArrowUpRight } from 'lucide-react';
+import { Users, Workflow, ShieldCheck, ArrowRight, Activity, Target, Zap, Brain, RefreshCw, Megaphone, Award, BookOpen, Swords, ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 interface Service {
   id: string;
@@ -146,60 +146,72 @@ export const PurpleTestedFramework = () => {
 
   // @return
   return <div className="w-full bg-background overflow-hidden">
+      {/* Header Section */}
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_18%,rgba(124,58,237,0.45),transparent_32%),radial-gradient(circle_at_78%_16%,rgba(91,33,182,0.36),transparent_34%),linear-gradient(135deg,#4c087a_0%,#3b087b_42%,#151b55_100%)] px-4 sm:px-8 py-24 md:py-28 text-center text-white">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(12,10,42,0.28)_100%)]" />
+        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-purple-500/20 blur-3xl" />
+        <div className="absolute right-0 bottom-0 h-72 w-72 rounded-full bg-indigo-900/35 blur-3xl" />
+
+        <div className="relative z-10 mx-auto max-w-5xl space-y-6">
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6
+        }} viewport={{
+          once: true
+        }} style={{
+          fontFamily: "'Open Sans', sans-serif"
+        }} className="text-xs font-bold uppercase tracking-[0.18em] text-white/70">
+            Our Cybersecurity Services
+          </motion.div>
+
+          <motion.h2 initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6,
+          delay: 0.1
+        }} viewport={{
+          once: true
+        }} style={{
+          fontFamily: "'Nunito Sans', sans-serif"
+        }} className="mx-auto max-w-4xl text-4xl font-bold leading-[1.12] tracking-[-0.03em] text-white sm:text-5xl md:text-[56px]">
+            <span>Validate, Strengthen,</span>
+            <br />
+            <span>Defend with Confidence</span>
+          </motion.h2>
+
+          <motion.p initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6,
+          delay: 0.2
+        }} viewport={{
+          once: true
+        }} style={{
+          fontFamily: "'Open Sans', sans-serif"
+        }} className="mx-auto max-w-3xl text-sm font-medium leading-relaxed text-white/80 md:text-base">
+            From SOC assessments to talent assurance, our end-to-end cybersecurity
+            services are designed to close the gap between assumption and reality-
+            giving your organization measurable, real-world security outcomes.
+          </motion.p>
+        </div>
+      </section>
+
       {/* Main content section */}
-      <div className="py-24 px-4 sm:px-8">
-        <div className="max-w-[1400px] mx-auto">
-
-          {/* Header Section */}
-          <div className="text-center mb-16 space-y-6">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6
-          }} viewport={{
-            once: true
-          }} className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wide uppercase">
-              Our Cybersecurity Services
-            </motion.div>
-
-            <motion.h2 initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.1
-          }} viewport={{
-            once: true
-          }} className="text-5xl md:text-7xl font-light tracking-tight text-foreground leading-[1.1]">
-              <span>Validate, Strengthen,</span>
-              <br />
-              <span className="text-primary font-normal">Defend with Confidence</span>
-            </motion.h2>
-
-            <motion.p initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.2
-          }} viewport={{
-            once: true
-          }} className="text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
-              From SOC assessments to talent assurance, our end-to-end cybersecurity
-              services are designed to close the gap between assumption and reality-
-              giving your organization measurable, real-world security outcomes.
-            </motion.p>
-          </div>
+      <div className="py-24">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
 
           {/* Services Grid - 2 columns */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-20">
@@ -214,7 +226,7 @@ export const PurpleTestedFramework = () => {
             delay: index % 4 * 0.08
           }} viewport={{
             once: true
-          }} onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(null)} className="group relative flex flex-col min-h-[480px] border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors duration-500">
+          }} onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(null)} className="group relative flex flex-col min-h-[480px] rounded-[20px] border border-black/5 bg-card overflow-hidden hover:border-primary/30 transition-all duration-500 shadow-[0_1px_2px_rgba(15,15,40,0.04),0_8px_24px_rgba(15,15,40,0.06)] hover:shadow-[0_4px_10px_rgba(15,15,40,0.06),0_18px_40px_rgba(15,15,40,0.10)]">
                 {/* Card Header */}
                 <div className="p-7 flex flex-col flex-none relative z-10 bg-card border-b border-border">
                   <div className="flex justify-between items-start mb-5">
@@ -324,7 +336,7 @@ export const PurpleTestedFramework = () => {
         </div>
       </div>
 
-      {/* CTA Strip - full-bleed solid */}
+      {/* CTA Strip - dark with purple glows */}
       <motion.section initial={{
       opacity: 0,
       y: 30
@@ -336,35 +348,34 @@ export const PurpleTestedFramework = () => {
       delay: 0.2
     }} viewport={{
       once: true
-    }} className="w-full bg-primary">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-16 md:py-20 flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Left copy */}
-          <div className="flex flex-col gap-3 text-center md:text-left">
-            <div className="flex items-center gap-2 justify-center md:justify-start">
-              <CalendarCheck className="w-5 h-5 text-white/70" />
-              <span className="text-white/70 text-sm font-semibold uppercase tracking-widest">
-                Ready to strengthen your security posture?
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-light text-white leading-tight tracking-tight">
-              <span>Let's build your</span>
-              <br />
-              <span className="font-semibold">security roadmap together.</span>
-            </h2>
-            <p className="text-white/60 text-base font-light max-w-xl leading-relaxed">
-              Talk to one of our experts to identify gaps, prioritize your defenses, and get
-              a tailored plan for your organization-no commitment required.
-            </p>
-          </div>
+    }} className="relative w-full overflow-hidden bg-[#050511]">
+        <div className="pointer-events-none absolute -left-32 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full bg-[#7c3aed]/55 blur-[110px]" />
+        <div className="pointer-events-none absolute -right-32 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full bg-[#6d28d9]/55 blur-[110px]" />
 
-          {/* Right CTAs */}
-          <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row items-center gap-4 flex-shrink-0">
-            <button onClick={() => navigateTo(CONTACT_URL)} className="group inline-flex items-center gap-2.5 bg-white text-primary font-semibold text-sm tracking-wide px-8 py-4 rounded-full hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl">
-              <CalendarCheck className="w-4 h-4" />
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 py-20 md:py-24 flex flex-col items-center text-center gap-6">
+          <h2 style={{
+            fontFamily: "'Nunito Sans', sans-serif"
+          }} className="text-3xl md:text-5xl font-bold text-white leading-[1.15] tracking-tight max-w-3xl">
+            <span>Let's build your</span>
+            <br />
+            <span>security roadmap together.</span>
+          </h2>
+
+          <p style={{
+            fontFamily: "'Open Sans', sans-serif"
+          }} className="text-white/70 text-sm md:text-base font-normal max-w-xl leading-relaxed">
+            Talk to one of our experts to identify gaps, prioritize your defenses, and get
+            a tailored plan for your organization-no commitment required.
+          </p>
+
+          <div className="mt-2 flex flex-col sm:flex-row items-center gap-4" style={{
+            fontFamily: "'Open Sans', sans-serif"
+          }}>
+            <button onClick={() => navigateTo(CONTACT_URL)} className="group inline-flex items-center gap-3 bg-[#8559ee] text-white font-medium text-base tracking-wide px-8 py-4 rounded-2xl hover:bg-[#7046c2] transition-all duration-300">
               <span>Schedule a Free Call</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
-            <button onClick={() => navigateTo(SERVICES_URL)} className="group inline-flex items-center gap-2.5 bg-transparent text-white font-medium text-sm tracking-wide px-8 py-4 rounded-full border border-white/30 hover:border-white/70 hover:bg-white/5 transition-all duration-300">
+            <button onClick={() => navigateTo(SERVICES_URL)} className="group inline-flex items-center gap-3 bg-white text-[#0B0C1B] font-medium text-base tracking-wide px-8 py-4 rounded-2xl hover:bg-white/90 transition-all duration-300">
               <span>View All Services</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
@@ -372,13 +383,39 @@ export const PurpleTestedFramework = () => {
         </div>
 
         {/* Fine print */}
-        <div className="border-t border-white/10">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-4 text-center">
+        <div className="relative z-10 border-t border-white/10">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-4 text-center" style={{
+            fontFamily: "'Open Sans', sans-serif"
+          }}>
             <p className="text-white/40 text-xs font-light">
               * The Standard in Security Excellence. Trusted by leading organizations worldwide.
             </p>
           </div>
         </div>
       </motion.section>
+
+      <footer className="w-full bg-[#0b0b0b] text-white">
+        <div className="mx-auto flex h-[340px] max-w-[1400px] items-center justify-center px-4 sm:px-8 md:h-[400px]">
+          <img src="https://cdn-nexlink.s3.us-east-2.amazonaws.com/Frame_1171275932.png" alt="PurpleSynapz - Inspired Tech" className="h-auto w-full max-w-[960px] object-contain" style={{
+            filter: 'brightness(0) invert(1)'
+          }} />
+        </div>
+
+        <div className="border-t border-white/25">
+          <div style={{
+          fontFamily: "'Open Sans', sans-serif"
+        }} className="flex min-h-[80px] w-full flex-col items-center justify-between gap-4 px-6 text-[13px] text-white/55 sm:px-10 md:flex-row md:px-14 lg:px-20">
+            <p>© 2026 PurpleSynapz. All rights reserved.</p>
+            <div className="flex items-center gap-10">
+              <button onClick={() => navigateTo('https://www.purplesynapz.com/privacy-policy')} className="transition-colors hover:text-white">
+                Privacy Policy
+              </button>
+              <button onClick={() => navigateTo(CONTACT_URL)} className="transition-colors hover:text-white">
+                Contact
+              </button>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>;
 };
